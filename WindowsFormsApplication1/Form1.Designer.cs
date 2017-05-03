@@ -119,6 +119,7 @@
             this.label31 = new System.Windows.Forms.Label();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
+            this.запуститьДатчикиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -246,6 +247,7 @@
             this.управлениеДвижениемToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.светофорыToolStripMenuItem,
             this.считатьДанныеToolStripMenuItem,
+            this.запуститьДатчикиToolStripMenuItem,
             this.полнаяПанельToolStripMenuItem});
             this.управлениеДвижениемToolStripMenuItem.Name = "управлениеДвижениемToolStripMenuItem";
             this.управлениеДвижениемToolStripMenuItem.Size = new System.Drawing.Size(151, 20);
@@ -255,31 +257,32 @@
             // светофорыToolStripMenuItem
             // 
             this.светофорыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.включитьToolStripMenuItem,
-            this.выключитьToolStripMenuItem});
+            this.выключитьToolStripMenuItem,
+            this.включитьToolStripMenuItem});
             this.светофорыToolStripMenuItem.Name = "светофорыToolStripMenuItem";
-            this.светофорыToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.светофорыToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.светофорыToolStripMenuItem.Text = "Светофоры";
             // 
             // включитьToolStripMenuItem
             // 
             this.включитьToolStripMenuItem.Name = "включитьToolStripMenuItem";
             this.включитьToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.включитьToolStripMenuItem.Text = "Обслуживание";
+            this.включитьToolStripMenuItem.Text = "Не обслуживание";
             this.включитьToolStripMenuItem.Click += new System.EventHandler(this.включитьToolStripMenuItem_Click);
             // 
             // выключитьToolStripMenuItem
             // 
             this.выключитьToolStripMenuItem.Name = "выключитьToolStripMenuItem";
             this.выключитьToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
-            this.выключитьToolStripMenuItem.Text = "Не обслуживание";
+            this.выключитьToolStripMenuItem.Text = "Обслуживание";
             this.выключитьToolStripMenuItem.Click += new System.EventHandler(this.выключитьToolStripMenuItem_Click);
             // 
             // считатьДанныеToolStripMenuItem
             // 
             this.считатьДанныеToolStripMenuItem.Name = "считатьДанныеToolStripMenuItem";
-            this.считатьДанныеToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.считатьДанныеToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.считатьДанныеToolStripMenuItem.Text = "Считать данные";
+            this.считатьДанныеToolStripMenuItem.Visible = false;
             this.считатьДанныеToolStripMenuItem.Click += new System.EventHandler(this.считатьДанныеToolStripMenuItem_Click);
             // 
             // полнаяПанельToolStripMenuItem
@@ -306,7 +309,7 @@
             this.toolStripSeparator2,
             this.toolStripMenuItem1});
             this.iPКамерыToolStripMenuItem.Name = "iPКамерыToolStripMenuItem";
-            this.iPКамерыToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iPКамерыToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.iPКамерыToolStripMenuItem.Text = "IP камеры";
             // 
             // toolStripTextBox1
@@ -333,7 +336,7 @@
             this.toolStripSeparator1,
             this.сохранитьToolStripMenuItem});
             this.iPNodeMcuToolStripMenuItem.Name = "iPNodeMcuToolStripMenuItem";
-            this.iPNodeMcuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.iPNodeMcuToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.iPNodeMcuToolStripMenuItem.Text = "IP NodeMcu";
             // 
             // toolStripTextBox2
@@ -363,6 +366,7 @@
             this.cOMПортToolStripMenuItem.Name = "cOMПортToolStripMenuItem";
             this.cOMПортToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.cOMПортToolStripMenuItem.Text = "COM Порт";
+            this.cOMПортToolStripMenuItem.Visible = false;
             // 
             // toolStripTextBox4
             // 
@@ -608,6 +612,7 @@
             this.button3.TabIndex = 1;
             this.button3.Text = "Выключить спец. сообщения";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button2
             // 
@@ -617,6 +622,7 @@
             this.button2.TabIndex = 0;
             this.button2.Text = "Включить спец. сообщения";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // panel7
             // 
@@ -907,6 +913,13 @@
             // 
             this.serialPort1.PortName = "COM7";
             // 
+            // запуститьДатчикиToolStripMenuItem
+            // 
+            this.запуститьДатчикиToolStripMenuItem.Name = "запуститьДатчикиToolStripMenuItem";
+            this.запуститьДатчикиToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
+            this.запуститьДатчикиToolStripMenuItem.Text = "Запустить датчики";
+            this.запуститьДатчикиToolStripMenuItem.Click += new System.EventHandler(this.запуститьДатчикиToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1041,6 +1054,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem считатьДанныеToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem запуститьДатчикиToolStripMenuItem;
     }
 }
 

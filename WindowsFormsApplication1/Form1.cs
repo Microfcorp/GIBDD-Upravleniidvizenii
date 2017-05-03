@@ -20,6 +20,7 @@ namespace WindowsFormsApplication1
         string client;
         Form2 form;
         string lab;
+        string nodmcu = "192.168.1.34";
 
         const string message =
         "Вы привысили лимит штрафов. Отчистить базу данных?";
@@ -387,9 +388,17 @@ namespace WindowsFormsApplication1
             }
         }
 
+        private void toolStripTextBox2_Click(object sender, EventArgs e)
+        {
+        }
+
+
         private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (toolStripTextBox2.Text != "")
+            {
+                nodmcu = toolStripTextBox2.Text;
+            }
         }
 
         private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
@@ -492,21 +501,24 @@ namespace WindowsFormsApplication1
 
         private void выключитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            serialPort1.Open();
-            serialPort1.Write("0");
-            serialPort1.Close();
+            webBrowser2.Navigate(new Uri("http://"+nodmcu+"/ondviz"));
+            // serialPort1.Open();
+            //serialPort1.Write("0");
+            //serialPort1.Close();
         }
 
         private void включитьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            serialPort1.Open();
-            serialPort1.Write("1");
-            serialPort1.Close();
+            webBrowser2.Navigate(new Uri("http://" + nodmcu + "/offdviz"));
+            //serialPort1.Open();
+            //serialPort1.Write("1");
+            //serialPort1.Close();
         }
 
         private void полнаяПанельToolStripMenuItem_Click(object sender, EventArgs e)
         {
             form.Visible = !form.Visible;
+            form.funct(nodmcu);
         }
 
         private void сохранитьToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -516,9 +528,26 @@ namespace WindowsFormsApplication1
 
         private void считатьДанныеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-              serialPort1.Open();             
-              label31.Text = serialPort1.ReadLine(); ;
-              serialPort1.Close();
+              //serialPort1.Open();             
+              //label31.Text = serialPort1.ReadLine(); ;
+              //serialPort1.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            webBrowser2.Navigate(new Uri("http://" + nodmcu + "/onspec"));
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            webBrowser2.Navigate(new Uri("http://" + nodmcu + "/offspec"));
+        }
+
+        private void запуститьДатчикиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            webBrowser5.Navigate(new Uri("http://" + nodmcu + "/dat1"));
+            webBrowser3.Navigate(new Uri("http://" + nodmcu + "/dat2"));
+            webBrowser4.Navigate(new Uri("http://" + nodmcu + "/dat3"));
         }
     }
 }

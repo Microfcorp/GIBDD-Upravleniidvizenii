@@ -23,7 +23,12 @@ namespace WindowsFormsApplication1
         }
         public void funct(string uril)
         {
-            //label1.Text = uril;
+            webBrowser1.Navigate(new Uri("http://"+uril));
+        }
+
+        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }
